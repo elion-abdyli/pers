@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>My IP Address</title>
+    <title>Cookie Viewer</title>
 </head>
 <body>
-    <h1>Your IP Address:</h1>
-    <p id="ipAddress">Loading...</p>
+    <h1>Your Cookies</h1>
+    <ul id="cookieList"></ul>
 
-    <script src="script.js"></script>
+    <script>
+        // Function to retrieve and display cookies
+        function displayCookies() {
+            const cookies = document.cookie;
+            const cookieList = document.getElementById("cookieList");
+            cookieList.innerHTML = ""; // Clear previous entries
+
+            if (cookies === "") {
+                cookieList.innerHTML = "<li>No cookies found</li>";
+            } else {
+                const cookieArray = cookies.split("; ");
+                for (let i = 0; i < cookieArray.length; i++) {
+                    const cookie = cookieArray[i];
+                    const [name, value] = cookie.split("=");
+                    const listItem = document.createElement("li");
+                    listItem.textContent = `${name}: ${value}`;
+                    cookieList.appendChild(listItem);
+                }
+            }
+        }
+
+        // Display cookies when the page loads
+        window.addEventListener("load", displayCookies);
+    </script>
 </body>
 </html>
