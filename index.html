@@ -1,36 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Browser Data Viewer</title>
+  <title>Chess Game</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Your Browser Data</h1>
-    <p>This dashboard allows you to view your browser's stored data.</p>
-    
-    <h2>Your Stored Data:</h2>
-    <div id="storedData"></div>
-
-    <script>
-        // Function to display stored data
-        function displayStoredData() {
-            const storedData = localStorage.getItem("user_data");
-            const storedDataDiv = document.getElementById("storedData");
-            storedDataDiv.innerHTML = "";
-
-            if (storedData) {
-                const userData = JSON.parse(storedData);
-                for (const key in userData) {
-                    const dataItem = document.createElement("p");
-                    dataItem.textContent = `${key}: ${userData[key]}`;
-                    storedDataDiv.appendChild(dataItem);
-                }
-            } else {
-                storedDataDiv.innerHTML = "<p>No stored data found</p>";
-            }
-        }
-
-        // Attach event listener to display stored data when the page loads
-        window.addEventListener("load", displayStoredData);
-    </script>
+  <div id="board" class="board"></div>
+  <button id="startBtn">Start Game</button>
+  <button id="resetBtn">Reset Game</button>
+  <script src="script.js"></script>
 </body>
 </html>
