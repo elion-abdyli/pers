@@ -1,5 +1,31 @@
-.board {
-  width: 400px;
-  height: 400px;
-  margin: 0 auto;
+body {
+    text-align: center;
+    font-family: Arial, sans-serif;
+}
+
+#container {
+    margin: 20px auto;
+}
+
+#grid-container {
+    display: grid;
+    grid-template-columns: repeat(50, 15px);
+    gap: 1px;
+}
+
+.cell {
+    width: 15px;
+    height: 15px;
+    background-color: white;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s;
+}
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
 }
